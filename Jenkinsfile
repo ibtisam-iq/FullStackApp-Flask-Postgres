@@ -28,7 +28,6 @@ pipeline {
                     # The source command is a shell built-in command, and it is not available in the shell that is executing the script.
                     # the default shell being used in Jenkins (sh) is not Bash but a more basic shell like dash, which doesn't support source.
                     # To fix this error, you can use the dot (.) command instead of source to activate the virtual environment.
-                    # bash -c "
 
                     # Activate virtual environment and install dependencies
                     . IbtisamOps/bin/activate
@@ -39,10 +38,22 @@ pipeline {
                     # Install dependencies
                     pip install -r requirements.txt
                 '''
+                /*
+                sh '''
+                rm -rf IbtisamOps
+                python3 -m venv IbtisamOps
+                chmod -R 755 IbtisamOps
+                bash -c "
+                source IbtisamOps/bin/activate
+                pip install --upgrade pip
+                pip install -r requirements.txt
+                "
+                '''
+                */
             }
         }
 
-        stage('Run Tests') {
+        stage('Run Tests - Pytest') {
             steps {
                 sh '''
                     # Activate virtual environment and run tests with coverage
@@ -53,6 +64,22 @@ pipeline {
 
                     # Run tests with pytest and generate coverage reports
                     pytest --cov=app tests/ --cov-report=xml --cov-report=term-missing --disable-warnings
+                '''
+            }
+        }
+
+        stage('Run Tests - Unittest') {
+            steps {
+                sh '''
+                    # Activate virtual environment and run tests with coverage
+                    . IbtisamOps/bin/activate
+
+                    # Install coverage package for pytest framework
+                    pip install coverage
+
+                    # Run tests with pytest and generate coverage reports
+                    coverage run -m unittest discover
+                    coverage xml
                 '''
             }
         }
