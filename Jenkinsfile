@@ -46,7 +46,7 @@ pipeline {
             steps {
                 sh '''
                     # Activate virtual environment and run tests with coverage
-                    # . IbtisamOps/bin/activate
+                    . IbtisamOps/bin/activate
 
                     # Install coverage package for pytest framework
                     pip install pytest pytest-cov
