@@ -23,9 +23,15 @@ pipeline {
 
                     # Set permissions
                     chmod -R 755 IbtisamOps
+                    
+                    # The error /var/lib/jenkins/workspace/.../script.sh.copy: 12: source: not found occurs because the source command is not recognized by the shell executing the script.
+                    # The source command is a shell built-in command, and it is not available in the shell that is executing the script.
+                    # the default shell being used in Jenkins (sh) is not Bash but a more basic shell like dash, which doesn't support source.
+                    # To fix this error, you can use the dot (.) command instead of source to activate the virtual environment.
+                    # bash -c "
 
                     # Activate virtual environment and install dependencies
-                    source IbtisamOps/bin/activate
+                    . IbtisamOps/bin/activate
 
                     # Upgrade pip package itself using pip
                     pip install --upgrade pip
