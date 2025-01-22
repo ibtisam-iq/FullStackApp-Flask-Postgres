@@ -1,50 +1,94 @@
 pipeline {
     agent any
+
     environment {
-        SCANNER_HOME= tool 'sonar-scanner'
+        SCANNER_HOME = tool 'sonar-scanner-tool'
     }
+
     stages {
         stage('Git Checkout') {
             steps {
-                git branch: 'main', credentialsId: 'git', url: 'https://github.com/jaiswaladi246/Multi-Tier-
-Python-Postgres.git'
+                git branch: 'main', url: 'https://github.com/ibtisamops/3TierFullStackApp-Flask-Postgres.git'
             }
         }
+
         stage('Setup Virtual Environment') {
             steps {
                 sh '''
-                    rm -rf venv # Remove any existing virtual environments
-                    python3 -m venv venv # Create a new virtual environment
-                    chmod -R 755 venv
-                    bash -c "
-                        source venv/bin/activate
-                        pip install --upgrade pip
-                        pip install -r requirements.txt
-                    "
+                    # Remove any existing virtual environments
+                    rm -rf IbtisamOps
+
+                    # Create a new virtual environment
+                    python3 -m venv IbtisamOps
+
+                    # Set permissions
+                    chmod -R 755 IbtisamOps
+
+                    # Activate virtual environment and install dependencies
+                    source IbtisamOps/bin/activate
+
+                    # Upgrade pip package itself using pip
+                    pip install --upgrade pip
+
+                    # Install dependencies
+                    pip install -r requirements.txt
                 '''
             }
         }
-        stage('Test') {
+
+        stage('Run Tests') {
             steps {
                 sh '''
-                    bash -c "
-                        source venv/bin/activate
-                        pytest --cov=app --cov-report=xml
-                        pytest --cov=app --cov-report=term-missing --disable-warnings
-                    "
+                    # Activate virtual environment and run tests with coverage
+                    source IbtisamOps/bin/activate
+
+                    # Install coverage package for pytest framework
+                    pip install pytest pytest-cov
+
+                    # Run tests with pytest and generate coverage reports
+                    pytest --cov=app tests/ --cov-report=xml --cov-report=term-missing --disable-warnings
                 '''
             }
         }
-        stage('Sonar') {
+
+        stage('SonarQube Analysis') {
             steps {
                 withSonarQubeEnv('sonar-server') {
-                    sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectKey=Python-project \
+                    sh '''
+                        $SCANNER_HOME/bin/sonar-scanner \
+                        -Dsonar.projectKey=Python-project \
                         -Dsonar.projectName=Python-project \
-                        -Dsonar.exclusions=venv/** \
+                        -Dsonar.exclusions=IbtisamOps/** \
                         -Dsonar.sources=. \
-                        -Dsonar.python.coverage.reportPaths=coverage.xml'''
+                        -Dsonar.python.coverage.reportPaths=coverage.xml
+                    '''
                 }
             }
         }
     }
+
+    post {
+        always {
+            // Clean up the workspace after the build
+            cleanWs()
+        }
+    }
 }
+
+```
+Understanding the `pytest` Command
+
+- `pytest`: This is the command to run the `pytest` testing framework.
+- `--cov=app`: This option specifies the directory (`app`) for which to measure code coverage.
+- `tests/`: This is the directory where your test files are located.
+- `--cov-report=xml`: This option generates a coverage report in XML format.
+- `--cov-report=term-missing`: This option generates a coverage report in the terminal, showing missing lines of code.
+- `--disable-warnings`: This option disables warnings during the test run.
+
+### Summary
+
+- The `pytest` command is included in the `Run Tests` stage.
+- It runs tests in the `tests/` directory, measures code coverage for the `app` directory, and generates both XML and terminal coverage reports.
+- Warnings are disabled during the test run.
+
+This should ensure that your tests are run with `pytest` and that coverage reports are generated correctly.
