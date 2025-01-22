@@ -75,7 +75,8 @@ pipeline {
     }
 }
 
-```
+
+/*
 Understanding the `pytest` Command
 
 - `pytest`: This is the command to run the `pytest` testing framework.
@@ -92,3 +93,4 @@ Understanding the `pytest` Command
 - Warnings are disabled during the test run.
 
 This should ensure that your tests are run with `pytest` and that coverage reports are generated correctly.
+*/
