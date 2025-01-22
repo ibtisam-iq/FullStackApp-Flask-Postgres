@@ -16,3 +16,7 @@ IbtisamOps/
 .DS_Store
 Thumbs.db
 
+# SonarQube generated files
+.coverage
+coverage.xml
+
