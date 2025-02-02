@@ -1,5 +1,3 @@
-```text
-
 ibtisam@mint-dell:~/git/Agri2Ops/03.Projects/00.Build (LocalOps)/09-PostgresFlask3TierApp$ tree -a
 .
 ├── app
@@ -268,5 +266,3 @@ ibtisam@mint-dell:/media/ibtisam/L-Mint/git/Agri2Ops/SonarQube/PostgresFlask3Tie
 
 8 directories, 26 files
 ibtisam@mint-dell:/media/ibtisam/L-Mint/git/Agri2Ops/SonarQube/PostgresFlask3TierApp$ 
-
-```
