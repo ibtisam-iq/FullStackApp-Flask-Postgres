@@ -73,17 +73,17 @@ class Config:
 
 ibtisam@lubuntu:~/SilverOps/03.Projects/00.LocalOps/0.1.09-py_Multi-Tier-App-Postgres$ sudo apt install python3.12-venv -y
 Reading package lists... Done
-ibtisam@lubuntu:~/SilverOps/03.Projects/00.LocalOps/0.1.09-py_Multi-Tier-App-Postgres$ python3 -m venv IbtisamOps
-ibtisam@lubuntu:~/SilverOps/03.Projects/00.LocalOps/0.1.09-py_Multi-Tier-App-Postgres$ source IbtisamOps/bin/activate
-(IbtisamOps) ibtisam@lubuntu:~/SilverOps/03.Projects/00.LocalOps/0.1.09-py_Multi-Tier-App-Postgres$ ls
-app  config.py  IbtisamOps  README.md  requirements.txt  run.py
-(IbtisamOps) ibtisam@lubuntu:~/SilverOps/03.Projects/00.LocalOps/0.1.09-py_Multi-Tier-App-Postgres$ pip3 install -r requirements.txt
+ibtisam@lubuntu:~/SilverOps/03.Projects/00.LocalOps/0.1.09-py_Multi-Tier-App-Postgres$ python3 -m venv IbtisamX
+ibtisam@lubuntu:~/SilverOps/03.Projects/00.LocalOps/0.1.09-py_Multi-Tier-App-Postgres$ source IbtisamX/bin/activate
+(IbtisamX) ibtisam@lubuntu:~/SilverOps/03.Projects/00.LocalOps/0.1.09-py_Multi-Tier-App-Postgres$ ls
+app  config.py  IbtisamX  README.md  requirements.txt  run.py
+(IbtisamX) ibtisam@lubuntu:~/SilverOps/03.Projects/00.LocalOps/0.1.09-py_Multi-Tier-App-Postgres$ pip3 install -r requirements.txt
 Collecting blinker==1.8.2 (from -r requirements.txt (line 1))
 Installing collected packages: typing_extensions, psycopg2-binary, MarkupSafe, itsdangerous, greenlet, click, blinker, Werkzeug, SQLAlchemy, Jinja2, Flask, Flask-SQLAlchemy
 Successfully installed Flask-3.0.3 Flask-SQLAlchemy-3.1.1 Jinja2-3.1.4 MarkupSafe-2.1.5 SQLAlchemy-2.0.32 Werkzeug-3.0.3 blinker-1.8.2 click-8.1.7 greenlet-3.0.3 itsdangerous-2.2.0 psycopg2-binary-2.9.9 typing_extensions-4.12.2
-(IbtisamOps) ibtisam@lubuntu:~/SilverOps/03.Projects/00.LocalOps/0.1.09-py_Multi-Tier-App-Postgres$ ls
-app  config.py  IbtisamOps  README.md  requirements.txt  run.py
-(IbtisamOps) ibtisam@lubuntu:~/SilverOps/03.Projects/00.LocalOps/0.1.09-py_Multi-Tier-App-Postgres$
+(IbtisamX) ibtisam@lubuntu:~/SilverOps/03.Projects/00.LocalOps/0.1.09-py_Multi-Tier-App-Postgres$ ls
+app  config.py  IbtisamX  README.md  requirements.txt  run.py
+(IbtisamX) ibtisam@lubuntu:~/SilverOps/03.Projects/00.LocalOps/0.1.09-py_Multi-Tier-App-Postgres$
 
 ibtisam@lubuntu:~$ sudo apt-get install postgresql postgresql-contrib
 Reading package lists... Done
@@ -149,9 +149,9 @@ my_database=# GRANT CREATE ON DATABASE my_database TO root;
 GRANT
 my_database=#
 
-(IbtisamOps) ibtisam@lubuntu:~/SilverOps/03.Projects/00.LocalOps/0.1.09-py_Multi-Tier-App-Postgres$ ls
-app  config.py  IbtisamOps  README.md  requirements.txt  run.py
-(IbtisamOps) ibtisam@lubuntu:~/SilverOps/03.Projects/00.LocalOps/0.1.09-py_Multi-Tier-App-Postgres$ python run.py
+(IbtisamX) ibtisam@lubuntu:~/SilverOps/03.Projects/00.LocalOps/0.1.09-py_Multi-Tier-App-Postgres$ ls
+app  config.py  IbtisamX  README.md  requirements.txt  run.py
+(IbtisamX) ibtisam@lubuntu:~/SilverOps/03.Projects/00.LocalOps/0.1.09-py_Multi-Tier-App-Postgres$ python run.py
  * Serving Flask app 'app'
  * Debug mode: off
 WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
@@ -167,9 +167,9 @@ Press CTRL+C to quit
 127.0.0.1 - - [13/Dec/2024 00:47:28] "POST /create HTTP/1.1" 302 -
 127.0.0.1 - - [13/Dec/2024 00:47:28] "GET / HTTP/1.1" 200 -
 127.0.0.1 - - [13/Dec/2024 00:47:32] "GET / HTTP/1.1" 200 -
-^C(IbtisamOps) ibtisam@lubuntu:~/SilverOps/03.Projects/00.LocalOps/0.1.09-py_Multi-Tier-App-Postgres$ ls
-app  config.py  IbtisamOps  README.md  requirements.txt  run.py
-(IbtisamOps) ibtisam@lubuntu:~/SilverOps/03.Projects/00.LocalOps/0.1.09-py_Multi-Tier-App-Postgres$ deactivate
+^C(IbtisamX) ibtisam@lubuntu:~/SilverOps/03.Projects/00.LocalOps/0.1.09-py_Multi-Tier-App-Postgres$ ls
+app  config.py  IbtisamX  README.md  requirements.txt  run.py
+(IbtisamX) ibtisam@lubuntu:~/SilverOps/03.Projects/00.LocalOps/0.1.09-py_Multi-Tier-App-Postgres$ deactivate
 ibtisam@lubuntu:~/SilverOps/03.Projects/00.LocalOps/0.1.09-py_Multi-Tier-App-Postgres$
 
 
@@ -202,13 +202,13 @@ ibtisam@mint-dell:/media/ibtisam/L-Mint/git/Agri2Ops/SonarQube/PostgresFlask3Tie
     └── test_app.py
 
 6 directories, 20 files
-ibtisam@mint-dell:/media/ibtisam/L-Mint/git/Agri2Ops/SonarQube/PostgresFlask3TierApp$ python3 -m venv IbtisamOps
-ibtisam@mint-dell:/media/ibtisam/L-Mint/git/Agri2Ops/SonarQube/PostgresFlask3TierApp$ source IbtisamOps/bin/activate
-(IbtisamOps) ibtisam@mint-dell:/media/ibtisam/L-Mint/git/Agri2Ops/SonarQube/PostgresFlask3TierApp$ pip install -r requirements.txt
+ibtisam@mint-dell:/media/ibtisam/L-Mint/git/Agri2Ops/SonarQube/PostgresFlask3TierApp$ python3 -m venv IbtisamX
+ibtisam@mint-dell:/media/ibtisam/L-Mint/git/Agri2Ops/SonarQube/PostgresFlask3TierApp$ source IbtisamX/bin/activate
+(IbtisamX) ibtisam@mint-dell:/media/ibtisam/L-Mint/git/Agri2Ops/SonarQube/PostgresFlask3TierApp$ pip install -r requirements.txt
 
 Installing collected packages: typing_extensions, psycopg2-binary, MarkupSafe, itsdangerous, greenlet, click, blinker, Werkzeug, SQLAlchemy, Jinja2, Flask, Flask-SQLAlchemy
 Successfully installed Flask-3.0.3 Flask-SQLAlchemy-3.1.1 Jinja2-3.1.4 MarkupSafe-2.1.5 SQLAlchemy-2.0.32 Werkzeug-3.0.3 blinker-1.8.2 click-8.1.7 greenlet-3.0.3 itsdangerous-2.2.0 psycopg2-binary-2.9.9 typing_extensions-4.12.2
-(IbtisamOps) ibtisam@mint-dell:/media/ibtisam/L-Mint/git/Agri2Ops/SonarQube/PostgresFlask3TierApp$ pip3 install coverage; coverage run -m unittest discover; coverage report; coverage xml
+(IbtisamX) ibtisam@mint-dell:/media/ibtisam/L-Mint/git/Agri2Ops/SonarQube/PostgresFlask3TierApp$ pip3 install coverage; coverage run -m unittest discover; coverage report; coverage xml
 Collecting coverage
   Using cached coverage-7.6.10-cp312-cp312-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (8.2 kB)
 Using cached coverage-7.6.10-cp312-cp312-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (240 kB)
@@ -228,8 +228,8 @@ tests/test_app.py      26      1    96%
 ---------------------------------------
 TOTAL                  46     10    78%
 Wrote XML report to coverage.xml
-(IbtisamOps) ibtisam@mint-dell:/media/ibtisam/L-Mint/git/Agri2Ops/SonarQube/PostgresFlask3TierApp$ deactivate
-ibtisam@mint-dell:/media/ibtisam/L-Mint/git/Agri2Ops/SonarQube/PostgresFlask3TierApp$ rm -rf IbtisamOps/
+(IbtisamX) ibtisam@mint-dell:/media/ibtisam/L-Mint/git/Agri2Ops/SonarQube/PostgresFlask3TierApp$ deactivate
+ibtisam@mint-dell:/media/ibtisam/L-Mint/git/Agri2Ops/SonarQube/PostgresFlask3TierApp$ rm -rf IbtisamX/
 ibtisam@mint-dell:/media/ibtisam/L-Mint/git/Agri2Ops/SonarQube/PostgresFlask3TierApp$ tree -a
 .
 ├── app

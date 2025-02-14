@@ -33,13 +33,13 @@ Before setting up the project, ensure you have the following installed on your m
 2. **Create a virtual environment:**
 
    ```bash
-   python3 -m venv IbtisamOps
+   python3 -m venv IbtisamX
    ```
 
 3. **Activate the virtual environment:**
 
    ```bash
-   source IbtisamOps/bin/activate
+   source IbtisamX/bin/activate
    ```
 
 4. **Install required Python libraries from `requirements.txt`:**
@@ -140,7 +140,7 @@ Once the environment and database are set up, you can run the application with t
 1. **Ensure your virtual environment is activated:**
 
    ```bash
-   source IbtisamOps/bin/activate
+   source IbtisamX/bin/activate
    ```
 
 2. **Run the application:**
